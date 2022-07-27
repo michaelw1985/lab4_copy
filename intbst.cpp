@@ -24,6 +24,7 @@ void IntBST::clear(Node *n) {
 
 // insert value in tree; return false if duplicate
 bool IntBST::insert(int value) {
+/*
     Node* t = root;
 
     if (!t) {
@@ -54,18 +55,18 @@ bool IntBST::insert(int value) {
 	    }
     }
 }
-/*    
+*/    
 	if (!root) {
         Node *temp = new Node {value};
-        temp = root;
+        root = temp;
         return true;
     }
     else {
         return insert(value, root);
     }
 }
-*/
-/*
+
+
 // recursive helper for insert (assumes n is never 0)
 bool IntBST::insert(int value, Node *n) {
     if (value > n->info) {
@@ -92,7 +93,7 @@ bool IntBST::insert(int value, Node *n) {
         return false;
     }
 }
-*/
+
 // print tree data pre-order
 void IntBST::printPreOrder() const {
     printPreOrder(root);
