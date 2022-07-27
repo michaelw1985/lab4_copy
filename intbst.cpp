@@ -168,11 +168,19 @@ IntBST:: Node* IntBST::getNodeFor(int value, Node* n) const{
     if (!n) {
         return nullptr;
     }
-    if (value > root->info) {
-        return  getNodeFor(value, n->right);
+    if (value > n->info) {
+	if (!n->right) {
+		return nullptr;
+	} else {
+        	return  getNodeFor(value, n->right);
+	}
     }
-    else if ( value < root->info) {
-        return getNodeFor(value, n->left);
+    else if ( value < n->info) {
+    	if (!n->left) {
+		return nullptr;
+	} else {
+		return getNodeFor(value, n->left);
+	}
     }
     else {
         return n; //this returns address right
