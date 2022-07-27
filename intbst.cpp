@@ -303,40 +303,58 @@ bool IntBST::remove(int value){
     else {
         if (!currNode->left && !currNode->right) { // no children
             if (currNode->parent->right == currNode) {
-            currNode->parent->right = nullptr;
-            delete currNode;
-            return true;
-            } else {
-            currNode->parent->left = nullptr;
-            delete currNode;
-            return true;
+            	currNode->parent->right = nullptr;
+            	delete currNode;
+            	return true;
+            } 
+	    else {
+            	currNode->parent->left = nullptr;
+            	delete currNode;
+            	return true;
             }
-        } else if (currNode->left && currNode->right) { // two children
+        } 
+	else if (currNode->left && currNode->right) { // two children
             Node* newNode = getSuccessorNode(value);
 	    int newData = newNode->info;
             remove(newNode->info); 
             currNode->info = newData;
             return true;
-        } else {
-            if (currNode->left) { // only has left child
-                currNode->left->parent = currNode->parent;
-                if (currNode->parent->info > value) {
-                    currNode->parent->left = currNode->left;
-                } else {
-                    currNode->parent->right = currNode->left;
-                }
-                delete currNode;
-                return true;
-            } else { // only has right child
-                currNode->right->parent = currNode->parent;
-                if (currNode->parent->info > value) {
-                    currNode->parent->left = currNode->right;
-                } else {
-                    currNode->parent->right = currNode->right;
-                }
-                delete currNode;
-                return true;
-           	}
-        }
-    }
+        } 
+	else { // only has one child
+		if (!currNode->parent) { // checking if the currNode is a root node
+			if (currNode->left->parent == currNode) {
+				currNode->left->parent = nullptr;
+				root = currNode->left;
+				delete currNode;
+			}
+			else {
+				currNode->right->parent = nullptr;
+				root = currNode->right;
+				delete currNode;
+			}
+		}
+		else if (currNode->left) { // only has left child which is left
+                	currNode->left->parent = currNode->parent;
+                	if (currNode->parent->info > value) {
+				currNode->parent->left = currNode->left;
+               		} 
+			else {
+				currNode->parent->right = currNode->left;
+                	}
+                	delete currNode;
+                	return true;
+            	}
+		else { // only has right child
+                	currNode->right->parent = currNode->parent;
+                	if (currNode->parent->info > value) {
+                    	currNode->parent->left = currNode->right;
+                	} 
+			else {
+                    	currNode->parent->right = currNode->right;
+               		}
+                	delete currNode;
+                	return true;
+           		}
+        	}
+    	}
 }
