@@ -294,14 +294,13 @@ int IntBST::getSuccessor(int value) const{
 // returns true if the node exist and was deleted or false if the node does not exist
 bool IntBST::remove(int value){
     Node *currNode = getNodeFor(value, root);
+    if (!currNode) return false;
     if (currNode == root && !root->left && !root->right) {
         delete currNode;
         root = nullptr;
         return true;
     }
-    if (!currNode) {
-        return false;
-    } else {
+    else {
         if (!currNode->left && !currNode->right) { // no children
             if (currNode->parent->right == currNode) {
             currNode->parent->right = nullptr;
@@ -310,31 +309,30 @@ bool IntBST::remove(int value){
             } else {
             currNode->parent->left = nullptr;
             delete currNode;
-                return true;
+            return true;
             }
         } else if (currNode->left && currNode->right) { // two children
             Node* newNode = getSuccessorNode(value);
-            currNode->info = newNode->info;
-            delete newNode;
+	    int newData = newNode->info;
+            remove(newNode->info); 
+            currNode->info = newData;
             return true;
         } else {
             if (currNode->left) { // only has left child
-                Node *parentNode = currNode->parent;
                 currNode->left->parent = currNode->parent;
-                if (parentNode->info > value) {
-                    parentNode->left = currNode->left;
+                if (currNode->parent->info > value) {
+                    currNode->parent->left = currNode->left;
                 } else {
-                    parentNode->right = currNode->left;
+                    currNode->parent->right = currNode->left;
                 }
                 delete currNode;
                 return true;
             } else { // only has right child
-                Node *parentNode = currNode->parent;
                 currNode->right->parent = currNode->parent;
-                if (parentNode->info > value) {
-                    parentNode->left = currNode->right;
+                if (currNode->parent->info > value) {
+                    currNode->parent->left = currNode->right;
                 } else {
-                    parentNode->right = currNode->right;
+                    currNode->parent->right = currNode->right;
                 }
                 delete currNode;
                 return true;
