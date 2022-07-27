@@ -36,7 +36,7 @@ bool IntBST::insert(int value) {
 
 // recursive helper for insert (assumes n is never 0)
 bool IntBST::insert(int value, Node *n) {
-    if (value > root->info) {
+    if (value > n->info) {
         if (!n->right) {
             Node *temp = new Node {value};
 	    temp->parent = n;
@@ -46,7 +46,7 @@ bool IntBST::insert(int value, Node *n) {
             return insert(value, n->right);
         }
     }
-    else if ( value < root->info) {
+    else if ( value < n->info) {
         if (!n->left) {
             Node *temp = new Node {value};
 	    temp->parent = n;
@@ -121,7 +121,7 @@ int IntBST::count() const {
 
 // recursive helper for count
 int IntBST::count(Node *n) const {
-    if (!n) { return 1; }
+    if (!n) { return 0; }
     return (1 + count(n->left) + count(n->right));
 }
 
