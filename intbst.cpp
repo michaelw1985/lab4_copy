@@ -121,7 +121,7 @@ int IntBST::count() const {
 
 // recursive helper for count
 int IntBST::count(Node *n) const {
-    if (!n) { return 0; }
+    if (!n) { return 1; }
     return (1 + count(n->left) + count(n->right));
 }
 
