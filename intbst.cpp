@@ -106,7 +106,7 @@ void IntBST::printPostOrder(Node *n) const {
 
 // return sum of values in tree
 int IntBST::sum() const {
-    return sum();
+    return sum(root);
 }
 // recursive helper for sum
 int IntBST::sum(Node *n) const {
