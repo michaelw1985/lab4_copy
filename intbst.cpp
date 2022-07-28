@@ -314,23 +314,25 @@ bool IntBST::remove(int value){
             }
         } 
 	else if (currNode->left && currNode->right) { // two children
-            Node* newNode = getSuccessorNode(value);
-	    int newData = newNode->info;
-            remove(newNode->info); 
-            currNode->info = newData;
-            return true;
+		Node* newNode = getSuccessorNode(value);
+		int newData = newNode->info;
+		remove(newNode->info); 
+		currNode->info = newData;
+		return true;
         } 
 	else { // only has one child
 		if (!currNode->parent) { // checking if the currNode is a root node
-			if (currNode->left->parent == currNode) {
+			if (currNode->left) {
 				currNode->left->parent = nullptr;
 				root = currNode->left;
 				delete currNode;
+				return true;
 			}
 			else {
 				currNode->right->parent = nullptr;
 				root = currNode->right;
 				delete currNode;
+				return true;
 			}
 		}
 		else if (currNode->left) { // only has left child which is left
