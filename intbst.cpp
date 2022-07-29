@@ -3,6 +3,9 @@
 #include <iostream>
 using std::cout;
 
+// Daryon Roshanzaer 5701388
+// Michael Wong 6209282
+
 // constructor sets up empty tree
 IntBST::IntBST() { 
     root = nullptr;
