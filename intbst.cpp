@@ -200,6 +200,7 @@ IntBST::Node* IntBST::getPredecessorNode(int value) const{
 
     if (!root) return 0;
     Node *currNode = getNodeFor(value, root);
+    if (!currNode) return 0;
     if (!currNode->left) {
         if (!currNode->parent) return 0;
         else {
@@ -246,6 +247,7 @@ int IntBST::getPredecessor(int value) const{
 
     if (!root) return 0;
     Node *currNode = getNodeFor(value, root);
+    if (!currNode) return 0;
     if (!currNode->left) {
         if (!currNode->parent) return 0;
         else {
@@ -341,6 +343,7 @@ int IntBST::getSuccessor(int value) const{
 
     if (!root) return 0;
     Node *currNode = getNodeFor(value, root);
+    if (!currNode) return 0;
     if (!currNode->right) {
         if (!currNode->parent) return 0;
         else {
@@ -352,7 +355,8 @@ int IntBST::getSuccessor(int value) const{
             }
             if (!currNode->parent) return 0;
         }
-    } else {
+    } 
+    else {
         currNode = currNode->right;
         while (currNode->left) {
             currNode = currNode->left;

@@ -83,13 +83,13 @@ int main() {
 	bst1.remove(64);
 	cout << "  removing 128" << endl;
 	bst1.remove(128);
-	//TODO: REMOVE THESE LINES LATER
+	/*TODO: REMOVE THESE LINES LATER
 	bst1.remove(8);
 	bst1.remove(512);
 	bst1.remove(256);
 	bst1.remove(32);
 	bst1.remove(16);
-	//end of TODO
+	*/
 	
 	cout << "  contains 64? " <<
             (bst1.contains(64) ? "Y" : "N") << endl;
