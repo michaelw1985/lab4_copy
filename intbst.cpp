@@ -26,7 +26,7 @@ void IntBST::clear(Node *n) {
 }
 
 // insert value in tree; return false if duplicate
-bool IntBST::insert(int value) {
+bool IntBST::insert(T value) {
 /*
     Node* t = root;
 
@@ -71,7 +71,7 @@ bool IntBST::insert(int value) {
 
 
 // recursive helper for insert (assumes n is never 0)
-bool IntBST::insert(int value, Node *n) {
+bool IntBST::insert(T value, Node *n) {
     if (value > n->info) {
         if (!n->right) {
             Node *temp = new Node {value};
@@ -141,11 +141,11 @@ void IntBST::printPostOrder(Node *n) const {
 }
 
 // return sum of values in tree
-int IntBST::sum() const {
+T IntBST::sum() const {
     return sum(root);
 }
 // recursive helper for sum
-int IntBST::sum(Node *n) const {
+T IntBST::sum(Node *n) const {
    if (!n) { return 0; }
    return (n->info + sum(n->left) + sum(n->right)); 
 }
@@ -167,7 +167,7 @@ int IntBST::count(Node *n) const {
 // Node* n: the node to start with (for a recursive call)
 // Whenever you call this method from somewhere else, pass it
 // the root node as "n"
-IntBST:: Node* IntBST::getNodeFor(int value, Node* n) const{
+IntBST:: Node* IntBST::getNodeFor(T value, Node* n) const{
     if (!n) {
         return nullptr;
     }
@@ -193,13 +193,13 @@ IntBST:: Node* IntBST::getNodeFor(int value, Node* n) const{
 // returns true if value is in the tree; false if not
 
 // FIX 
-bool IntBST::contains(int value) const {
+bool IntBST::contains(T value) const {
     if (getNodeFor(value, root)) return true;
     else return false;
 }
 
 // returns the Node containing the predecessor of the given value
-IntBST::Node* IntBST::getPredecessorNode(int value) const{
+IntBST::Node* IntBST::getPredecessorNode(T value) const{
 
     if (!root) return 0;
     Node *currNode = getNodeFor(value, root);
@@ -246,7 +246,7 @@ IntBST::Node* IntBST::getPredecessorNode(int value) const{
 */
 
 // returns the predecessor value of the given value or 0 if there is none
-int IntBST::getPredecessor(int value) const{
+int IntBST::getPredecessor(T value) const{
 
     if (!root) return 0;
     Node *currNode = getNodeFor(value, root);
@@ -293,7 +293,7 @@ int IntBST::getPredecessor(int value) const{
 }
 */
 // returns the Node containing the successor of the given value
-IntBST::Node* IntBST::getSuccessorNode(int value) const{
+IntBST::Node* IntBST::getSuccessorNode(T value) const{
 
 /*	
 	if (!root) return nullptr;
@@ -342,7 +342,7 @@ IntBST::Node* IntBST::getSuccessorNode(int value) const{
 
 
 // returns the successor value of the given value or 0 if there is none
-int IntBST::getSuccessor(int value) const{
+int IntBST::getSuccessor(T value) const{
 
     if (!root) return 0;
     Node *currNode = getNodeFor(value, root);
@@ -391,7 +391,7 @@ int IntBST::getSuccessor(int value) const{
 
 // deletes the Node containing the given value from the tree
 // returns true if the node exist and was deleted or false if the node does not exist
-bool IntBST::remove(int value){
+bool IntBST::remove(T value){
     Node *currNode = getNodeFor(value, root);
     if (!currNode) return false;
     if (currNode == root && !root->left && !root->right) {
@@ -414,7 +414,7 @@ bool IntBST::remove(int value){
         } 
 	else if (currNode->left && currNode->right) { // two children
 		Node* newNode = getSuccessorNode(value);
-		int newData = newNode->info;
+		T newData = newNode->info;
 		remove(newNode->info); 
 		currNode->info = newData;
 		return true;
