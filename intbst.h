@@ -34,27 +34,27 @@ class IntBST {
 
     struct Node {
 	T info;
-	Node *left, *right, * parent;
+	Node<T> *left, *right, * parent;
 	// useful constructor:
     Node(T v=0) : info(v), left(0), right(0), parent(0) { }
     };
 
     // just one instance variable (pointer to root node):
-    Node *root;
+    Node<T> *root;
 
     // recursive utility functions for use by public methods above
-    Node* getNodeFor(T value, Node* n) const; // IMPLEMENT THIS FIRST: returns the node for a given value or NULL if none exists
-    void clear(Node *n); // for destructor
-    bool insert(T value, Node *n); // note overloading names for simplicity
-    void printPreOrder(Node *n) const;
-    void printInOrder(Node *n) const;
-    void printPostOrder(Node *n) const;
-    T sum(Node *n) const;
-    int count(Node *n) const;
+    Node* getNodeFor(T value, Node<T>* n) const; // IMPLEMENT THIS FIRST: returns the node for a given value or NULL if none exists
+    void clear(Node<T> *n); // for destructor
+    bool insert(T value, Node<T> *n); // note overloading names for simplicity
+    void printPreOrder(Node<T> *n) const;
+    void printInOrder(Node<T> *n) const;
+    void printPostOrder(Node<T> *n) const;
+    T sum(Node<T> *n) const;
+    int count(Node<T> *n) const;
 
     // these should be used by getPredecessor and getSuccessor, and ONE of them should be used by remove
-    Node* getSuccessorNode(T value) const;   // returns the Node containing the successor of the given value
-    Node* getPredecessorNode(T value) const; // returns the Node containing the predecessor of the given value 
+    Node<T>* getSuccessorNode(T value) const;   // returns the Node containing the successor of the given value
+    Node<T>* getPredecessorNode(T value) const; // returns the Node containing the predecessor of the given value 
 };
 
 #include "intbst.cpp"
