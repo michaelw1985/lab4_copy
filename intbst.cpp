@@ -135,7 +135,7 @@ int IntBST::count(Node<T> *n) const {
 // Node* n: the node to start with (for a recursive call)
 // Whenever you call this method from somewhere else, pass it
 // the root node as "n"
-IntBST:: Node<T>* IntBST::getNodeFor(T value, Node<T>* n) const{
+typename IntBST<T>::NodePtr IntBST<T>::getNodeFor(T value, Node<T>* n) const{
     if (!n) {
         return nullptr;
     }
@@ -167,7 +167,7 @@ bool IntBST::contains(T value) const {
 }
 
 // returns the Node containing the predecessor of the given value
-IntBST::Node<T>* IntBST::getPredecessorNode(T value) const{
+typename IntBST<T>::NodePtr IntBST<T>::getPredecessorNode(T value) const{
 
     if (!root) return 0;
     Node<T> *currNode = getNodeFor(value, root);
@@ -219,7 +219,7 @@ int IntBST::getPredecessor(T value) const{
 }
 
 // returns the Node containing the successor of the given value
-IntBST::Node<T>* IntBST::getSuccessorNode(T value) const{
+typename IntBST<T>::NodePtr IntBST<T>::getSuccessorNode(T value) const{
     if (!root) return nullptr;
     Node<T> *currNode = getNodeFor(value, root);
     if (!currNode) return nullptr;
@@ -246,7 +246,7 @@ IntBST::Node<T>* IntBST::getSuccessorNode(T value) const{
 
 
 // returns the successor value of the given value or 0 if there is none
-int IntBST::getSuccessor(T value) const{
+T IntBST::getSuccessor(T value) const{
 
     if (!root) return 0;
     Node<T> *currNode = getNodeFor(value, root);

@@ -23,7 +23,7 @@ class IntBST {
     void printPostOrder() const;     // print tree data post-order to cout
     T sum() const;                 // sum of all values
     int count() const;               // count of values
-    bool contains(int value) const;  // true if value is in tree
+    bool contains(T value) const;  // true if value is in tree
 
     // THESE ARE HARDER! DO THESE LAST
     T getPredecessor(T value) const;       // returns the predecessor value of the given value or 0 if there is none
@@ -33,17 +33,18 @@ class IntBST {
  private:
 
     struct Node {
-	T info;
-	Node<T> *left, *right, * parent;
-	// useful constructor:
-    Node(T v=0) : info(v), left(0), right(0), parent(0) { }
-    };
+        typedef Node<T> NodePtr;
+        T info;
+        Node<T> *left, *right, * parent;
+        // useful constructor:
+        Node(T v=0) : info(v), left(0), right(0), parent(0) { }
+        };
 
     // just one instance variable (pointer to root node):
     Node<T> *root;
 
     // recursive utility functions for use by public methods above
-    Node* getNodeFor(T value, Node<T>* n) const; // IMPLEMENT THIS FIRST: returns the node for a given value or NULL if none exists
+    NodePtr getNodeFor(T value, Node<T>* n) const; // IMPLEMENT THIS FIRST: returns the node for a given value or NULL if none exists
     void clear(Node<T> *n); // for destructor
     bool insert(T value, Node<T> *n); // note overloading names for simplicity
     void printPreOrder(Node<T> *n) const;
@@ -53,8 +54,8 @@ class IntBST {
     int count(Node<T> *n) const;
 
     // these should be used by getPredecessor and getSuccessor, and ONE of them should be used by remove
-    Node<T>* getSuccessorNode(T value) const;   // returns the Node containing the successor of the given value
-    Node<T>* getPredecessorNode(T value) const; // returns the Node containing the predecessor of the given value 
+    NodePtr getSuccessorNode(T value) const;   // returns the Node containing the successor of the given value
+    NodePtr getPredecessorNode(T value) const; // returns the Node containing the predecessor of the given value 
 };
 
 #include "intbst.cpp"
