@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/fs/student/mpwong/cs24/lab4_copy'
+g++ -std=c++11 -Wall -Wno-uninitialized testbst.cpp -c
+g++ -std=c++11 -Wall -Wno-uninitialized intbst.cpp -c
+g++ -std=c++11 -Wall -Wno-uninitialized testbst.o intbst.o -o testbst
+make: Leaving directory '/fs/student/mpwong/cs24/lab4_copy'
+ 

@@ -7,18 +7,18 @@ using std::cout;
 // Michael Wong 6209282
 
 // constructor sets up empty tree
-IntBST::IntBST() { 
+IntBST<T>::IntBST() { 
     root = nullptr;
 }
 
 // destructor deletes all nodes
-IntBST::~IntBST() {
+IntBST<T>::~IntBST() {
     clear(root);
     root = nullptr;
 }
 
 // recursive helper for destructor
-void IntBST::clear(Node<T> *n) {
+void IntBST<T>::clear(Node *n) {
     if (!n) return;
     clear(n->left);
     clear(n->right);
@@ -26,9 +26,9 @@ void IntBST::clear(Node<T> *n) {
 }
 
 // insert value in tree; return false if duplicate
-bool IntBST::insert(T value) {
+bool IntBST<T>::insert(T value) {
 	if (!root) {
-        Node<T> *temp = new Node {value};
+        Node *temp = new Node {value};
         root = temp;
         return true;
     }
@@ -39,10 +39,10 @@ bool IntBST::insert(T value) {
 
 
 // recursive helper for insert (assumes n is never 0)
-bool IntBST::insert(T value, Node<T> *n) {
+bool IntBST<T>::insert(T value, Node *n) {
     if (value > n->info) {
         if (!n->right) {
-            Node<T> *temp = new Node {value};
+            Node *temp = new Node {value};
 	    temp->parent = n;
             n->right = temp;
             return true;
@@ -52,7 +52,7 @@ bool IntBST::insert(T value, Node<T> *n) {
     }
     else if ( value < n->info) {
         if (!n->left) {
-            Node<T> *temp = new Node {value};
+            Node *temp = new Node {value};
 	    temp->parent = n;
             n->left = temp;
             return true;
@@ -66,12 +66,12 @@ bool IntBST::insert(T value, Node<T> *n) {
 }
 
 // print tree data pre-order
-void IntBST::printPreOrder() const {
+void IntBST<T>::printPreOrder() const {
     printPreOrder(root);
 }
 
 // recursive helper for printPreOrder()
-void IntBST::printPreOrder(Node<T> *n) const {
+void IntBST<T>::printPreOrder(Node *n) const {
     if (!n) {
         return;
     }
@@ -81,11 +81,11 @@ void IntBST::printPreOrder(Node<T> *n) const {
 }
 
 // print tree data in-order, with helper
-void IntBST::printInOrder() const {
+void IntBST<T>::printInOrder() const {
     printInOrder(root);
 }
 
-void IntBST::printInOrder(Node<T> *n) const {
+void IntBST<T>::printInOrder(Node *n) const {
     if (!n) {
         return;
     }
@@ -95,11 +95,11 @@ void IntBST::printInOrder(Node<T> *n) const {
 }
 
 // prints tree data post-order, with helper
-void IntBST::printPostOrder() const {
+void IntBST<T>::printPostOrder() const {
     printPostOrder(root);
 }
 
-void IntBST::printPostOrder(Node<T> *n) const {
+void IntBST<T>::printPostOrder(Node *n) const {
     if (!n) {
         return;
     }
@@ -109,22 +109,22 @@ void IntBST::printPostOrder(Node<T> *n) const {
 }
 
 // return sum of values in tree
-T IntBST::sum() const {
+T IntBST<T>::sum() const {
     return sum(root);
 }
 // recursive helper for sum
-T IntBST::sum(Node<T> *n) const {
+T IntBST<T>::sum(Node *n) const {
    if (!n) { return 0; }
    return (n->info + sum(n->left) + sum(n->right)); 
 }
 
 // return count of values
-int IntBST::count() const {
+int IntBST<T>::count() const {
     return count(root);
 }
 
 // recursive helper for count
-int IntBST::count(Node<T> *n) const {
+int IntBST<T>::count(Node *n) const {
     if (!n) { return 0; }
     return (1 + count(n->left) + count(n->right));
 }
@@ -135,7 +135,7 @@ int IntBST::count(Node<T> *n) const {
 // Node* n: the node to start with (for a recursive call)
 // Whenever you call this method from somewhere else, pass it
 // the root node as "n"
-typename IntBST<T>::NodePtr IntBST<T>::getNodeFor(T value, Node<T>* n) const{
+Node* IntBST<T>::getNodeFor(T value, Node* n) const{
     if (!n) {
         return nullptr;
     }
@@ -161,16 +161,16 @@ typename IntBST<T>::NodePtr IntBST<T>::getNodeFor(T value, Node<T>* n) const{
 // returns true if value is in the tree; false if not
 
 // FIX 
-bool IntBST::contains(T value) const {
+bool IntBST<T>::contains(T value) const {
     if (getNodeFor(value, root)) return true;
     else return false;
 }
 
 // returns the Node containing the predecessor of the given value
-typename IntBST<T>::NodePtr IntBST<T>::getPredecessorNode(T value) const{
+Node* IntBST<T>::getPredecessorNode(T value) const{
 
     if (!root) return 0;
-    Node<T> *currNode = getNodeFor(value, root);
+    Node* currNode = getNodeFor(value, root);
     if (!currNode) return 0;
     if (!currNode->left) {
         if (!currNode->parent) return 0;
@@ -193,10 +193,10 @@ typename IntBST<T>::NodePtr IntBST<T>::getPredecessorNode(T value) const{
 }
 
 // returns the predecessor value of the given value or 0 if there is none
-int IntBST::getPredecessor(T value) const{
+int IntBST<T>::getPredecessor(T value) const{
 
     if (!root) return 0;
-    Node<T> *currNode = getNodeFor(value, root);
+    Node* currNode = getNodeFor(value, root);
     if (!currNode) return 0;
     if (!currNode->left) {
         if (!currNode->parent) return 0;
@@ -219,9 +219,9 @@ int IntBST::getPredecessor(T value) const{
 }
 
 // returns the Node containing the successor of the given value
-typename IntBST<T>::NodePtr IntBST<T>::getSuccessorNode(T value) const{
+Node* IntBST<T>::getSuccessorNode(T value) const{
     if (!root) return nullptr;
-    Node<T> *currNode = getNodeFor(value, root);
+    Node *currNode = getNodeFor(value, root);
     if (!currNode) return nullptr;
     if (!currNode->right) {
         if (!currNode->parent) return nullptr;
@@ -246,10 +246,10 @@ typename IntBST<T>::NodePtr IntBST<T>::getSuccessorNode(T value) const{
 
 
 // returns the successor value of the given value or 0 if there is none
-T IntBST::getSuccessor(T value) const{
+T IntBST<T>::getSuccessor(T value) const{
 
     if (!root) return 0;
-    Node<T> *currNode = getNodeFor(value, root);
+    Node *currNode = getNodeFor(value, root);
     if (!currNode) return 0;
     if (!currNode->right) {
         if (!currNode->parent) return 0;
@@ -295,8 +295,8 @@ T IntBST::getSuccessor(T value) const{
 
 // deletes the Node containing the given value from the tree
 // returns true if the node exist and was deleted or false if the node does not exist
-bool IntBST::remove(T value){
-    Node<T> *currNode = getNodeFor(value, root);
+bool IntBST<T>::remove(T value){
+    Node *currNode = getNodeFor(value, root);
     if (!currNode) return false;
     if (currNode == root && !root->left && !root->right) {
         delete currNode;
@@ -317,7 +317,7 @@ bool IntBST::remove(T value){
             }
         } 
 	else if (currNode->left && currNode->right) { // two children
-		Node<T>* newNode = getSuccessorNode(value);
+		Node* newNode = getSuccessorNode(value);
 		T newData = newNode->info;
 		remove(newNode->info); 
 		currNode->info = newData;

@@ -1,0 +1,337 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+# Built for x86_64-redhat-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Wed Aug 10 01:17:54 2022
+
+# Variables
+
+# environment
+JAVA_HOME = /usr/lib/jvm/java-18-openjdk-18.0.1.0.10-1.rolling.fc34.x86_64
+# environment
+LC_ALL = C
+# environment
+LMOD_SETTARG_FULL_SUPPORT = no
+# environment
+VSCODE_CWD = /fs/student/mpwong
+# default
+MAKE_COMMAND := make
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# environment
+FPATH = /usr/share/lmod/lmod/init/ksh_funcs
+# environment
+LMOD_ROOT = /usr/share/lmod
+# environment
+define BASH_FUNC_which%%
+() {  ( alias;
+ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot "$@"
+}
+endef
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /fs/student/mpwong/cs24/lab4_copy
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+HOSTNAME = csilvm-06.cs.ucsb.edu
+# environment
+MAIL = /var/spool/mail/mpwong
+# environment
+XDG_DATA_DIRS = /fs/student/mpwong/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+LANG = C
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+LMOD_CMD = /usr/share/lmod/lmod/libexec/lmod
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /fs/student/mpwong/cs24/lab4_copy
+# environment
+define BASH_FUNC_module%%
+() {  eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+endef
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+LMOD_DIR = /usr/share/lmod/lmod/libexec
+# environment
+LESSOPEN = ||/usr/bin/lesspipe.sh %s
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+HISTSIZE = 1000
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# environment
+CONDA_SHLVL = 0
+# automatic
+@F = $(notdir $@)
+# environment
+XDG_SESSION_TYPE = tty
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+*F = $(notdir $*)
+# environment
+MANPATH = /usr/share/lmod/lmod/share/man:
+# environment
+MODULEPATH = /etc/modulefiles:/usr/share/modulefiles:/usr/share/modulefiles/Linux:/usr/share/modulefiles/Core:/usr/share/lmod/lmod/modulefiles/Core
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/43522/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+define BASH_FUNC_ml%%
+() {  eval $($LMOD_DIR/ml_cmd "$@")
+}
+endef
+# default
+MAKE_HOST := x86_64-redhat-linux-gnu
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 1
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /fs/student/mpwong/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/bin/remote-cli:/fs/student/mpwong/.local/bin:/fs/student/mpwong/bin:/usr/condabin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/var/lib/snapd/snap/bin
+# environment
+MOZ_GMP_PATH = /usr/lib64/mozilla/plugins/gmp-gmpopenh264/system-installed
+# default
+MAKEFILES := 
+# environment
+MODULESHOME = /usr/share/lmod/lmod
+# automatic
+^F = $(notdir $^)
+# environment
+LMOD_sys = Linux
+# environment
+SSH_CLIENT = 128.111.27.247 42784 2022
+# makefile (from 'Makefile', line 1)
+CPP = g++ -std=c++11
+# automatic
+?F = $(notdir $?)
+# environment
+__LMOD_SET_FPATH = 1
+# environment
+KDEDIRS = /usr
+# automatic
++F = $(notdir $+)
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+BROWSER = /fs/student/mpwong/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/bin/helpers/browser.sh
+# environment
+LOGNAME = mpwong
+# makefile (from 'Makefile', line 2)
+CPPFLAGS = -Wall -Wno-uninitialized
+# environment
+BASH_ENV = /usr/share/lmod/lmod/init/bash
+# makefile
+.DEFAULT_GOAL := all
+# environment
+MODULEPATH_ROOT = /usr/share/modulefiles
+# environment
+HISTCONTROL = ignoredups
+# environment
+EDITOR = /usr/bin/nano
+# environment
+USER = mpwong
+# default
+MAKE_VERSION := 4.3
+# environment
+which_declare = declare -f
+# environment
+CVS_RSH = ssh
+# environment
+VSCODE_AGENT_FOLDER = /fs/student/mpwong/.vscode-server
+# environment
+_ = /usr/bin/make
+# environment
+XDG_RUNTIME_DIR = /run/user/43522
+# environment
+S_COLORS = auto
+# environment
+VSCODE_IPC_HOOK_CLI = /run/user/43522/vscode-ipc-23868e64-9a8d-43be-af91-6527ac811b6f.sock
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /fs/student/mpwong
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+MATHEMATICA_HOME = /usr/local/Wolfram/Mathematica/12.3
+# environment
+XDG_SESSION_ID = 2243
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+LMOD_PKG = /usr/share/lmod/lmod
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
+# environment
+LMOD_VERSION = 8.4.23
+# environment
+SSH_CONNECTION = 128.111.27.247 42784 128.111.30.206 2022
+# variable set hash-table stats:
+# Load=95/1024=9%, Rehash=0, Collisions=4/130=3%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 52, inode 11599845029): 13 files, no impossibilities.
+
+# 13 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+testbst.o: testbst.cpp
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-07 18:21:47.719425401
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 9):
+	$(CPP) $(CPPFLAGS) $^ -c
+
+testbst: testbst.o intbst.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-07 18:21:47.69442656
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  recipe to execute (from 'Makefile', line 12):
+	$(CPP) $(CPPFLAGS) $^ -o $@
+
+# Not a target:
+intbst.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-09 11:27:04.291132043
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-07 18:21:47.618430084
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: testbst
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+
+intbst.o: intbst.cpp
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-08-07 18:21:47.674427487
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := intbst.o
+# automatic
+# * := 
+# automatic
+# < := intbst.cpp
+ 
+# automatic
+# + := intbst.cpp
+# automatic
+# % := 
+# automatic
+# ^ := intbst.cpp
+# automatic
+# ? := intbst.cpp
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/14=7%
+#  recipe to execute (from 'Makefile', line 6):
+	$(CPP) $(CPPFLAGS) $^ -c
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+testbst.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-07 18:21:47.707425958
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=9/1024=1%, Rehash=0, Collisions=0/27=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 18 / storage = 163 B / avg = 9 B
+# current buf: size = 8162 B / used = 163 B / count = 18 / avg = 9 B
+
+# strcache performance: lookups = 36 / hit rate = 50%
+# hash-table stats:
+# Load=18/8192=0%, Rehash=0, Collisions=0/36=0%
+# Finished Make data base on Wed Aug 10 01:17:54 2022
+
+ 
